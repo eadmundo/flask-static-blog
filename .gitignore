@@ -1,0 +1,4 @@
+.venv
+.vagrant
+*.pyc
+.DS_Store

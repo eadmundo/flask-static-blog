@@ -1,0 +1,26 @@
+cssmin==0.1.4
+Fabric==1.4.3
+Flask==0.9
+Flask-DebugToolbar==0.7.1
+Flask-Script==0.3.3
+setproctitle==1.1.6
+python-dateutil==2.1
+simplejson==2.6.1
+# codec for slugifying accented characters
+translitcodec==0.3
+git+git://github.com/tobiasandtobias/flask-assets.git@v0.7.1-versioned-images#egg=flask_assets
+git+git://github.com/tobiasandtobias/webassets.git@v0.7.3-versioned-images#egg=webassets
+
+# for tests
+nose==1.1.2
+yanc==0.2.3
+pinocchio==0.3.1
+nose-exclude==0.1.8
+git+git://github.com/tobiasandtobias/fixture.git#egg=fixture
+
+# YAML front-matter
+PyYAML==3.10
+
+# Parse markdown posts
+Markdown==2.2.0
+Pygments==1.5
