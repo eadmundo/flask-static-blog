@@ -1,0 +1,25 @@
+{% extends "base.jinja" %}
+
+{% block title %}BLOG - {{ super() }}{% endblock %}
+
+{% block content %}
+    {% from "includes/_pagination.jinja" import render_pagination %}
+
+    <div class="rounded-box">
+        <p>Total {{ pagination.total }} posts.</p>
+
+        {{ render_pagination(pagination, endpoint) }}
+
+        <ul>
+
+        {% for post in pagination.items %}
+            <li>
+                <h3><a href="{{ post | post_url }}">{{ post.title }}</a></h3> {#posted by <a href="{{ url_for('profiles.profile', username=post.author.username) }}">{{ post.author.username }}</a>#}
+            </li>
+        {% endfor %}
+
+        </ul>
+
+        {{ render_pagination(pagination, endpoint) }}
+    </div>
+{% endblock %}

@@ -1,5 +1,6 @@
-from flask import url_for, abort, render_template
+from flask import request, url_for, abort, render_template, current_app
 from app.blueprints.blog import blueprint
+from app.blueprints.blog.models import BlogPost
 
 
 def post_url(post):
@@ -9,21 +10,23 @@ blueprint.add_app_template_filter(post_url)
 
 
 @blueprint.route('/')
-@blueprint.route('/tags/<string:slug>/')
+@blueprint.route('/tags/<string:tag>/')
 @blueprint.discoverable_route('/<regex("\d{4}"):year>/<regex("\d{2}"):month>/<string:slug>/')
-def post_render(year=None, month=None, slug=None):
+def post_render(year=None, month=None, slug=None, tag=None):
 
-    # page = int(request.args.get('page', 1))
+    page = int(request.args.get('page', 1))
 
-    posts = blueprint.fetch_posts(year=year, month=month, slug=slug)
+    query = BlogPost.query(year=year, month=month, slug=slug, current_app=current_app)
 
-    print posts
+    if query.count == 1 and slug is not None:
+        return render_template('single_post.jinja', post=query.all()[0])
 
-    if len(posts) == 1 and slug is not None:
-        post = blueprint.file_post_to_obj(posts[0])
-        return render_template('single_post.jinja', post=post)
-
-    if year is not None and not len(posts):
+    if year is not None and not query.count:
         abort(404)
 
-    return render_template('posts.jinja', posts=posts)
+    if tag is not None:
+        query.tagged(tag)
+
+    pagination = query.paginate(page, 4)
+
+    return render_template('posts.jinja', pagination=pagination, endpoint=request.endpoint)

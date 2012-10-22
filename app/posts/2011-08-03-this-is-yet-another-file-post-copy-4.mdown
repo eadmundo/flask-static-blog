@@ -1,0 +1,51 @@
+---
+author: Edward Stone
+tags: [blah, two words]
+---
+
+# Well, well, well
+
+This is a post generated from a [markdown](http://daringfireball.net/projects/markdown/) file on the file-system!
+
+* exciting
+* innovative (well, except that [Jekyll](http://jekyllrb.com) did it first)
+* nerd-friendly
+
+Actually I do really enjoy writing stuff in markdown.
+
+Let's put a code sample or two in there!
+
+	:::python
+	from flask import Flask
+	app = Flask(__name__)
+
+That should be some python.
+
+	:::javascript
+	var test = function() {
+		alert('Hello world!');
+	};
+
+That should be some javascript.
+
+How about some HTML?
+
+	:::html
+	<ul id="test">
+		<li>test</li>
+	</ul>
+
+(needs content in between code-blocks to work)
+
+	#!python
+	from flask import Flask
+	app = Flask(__name__)
+
+Python with line numbers.
+
+	#!javascript
+	var test = function() {
+		alert('Hello world!');
+	};
+
+Javascript with line numbers.

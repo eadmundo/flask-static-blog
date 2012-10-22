@@ -2,6 +2,8 @@ from werkzeug.routing import BaseConverter
 
 from flask import Flask
 
+from app.helpers import slugify
+
 DEFAULT_BLUEPRINTS = [
     ('blog', ''),
 ]
@@ -20,6 +22,8 @@ def create_app(config=None, blueprints=None):
     app = Flask(__name__)
     app.config.from_pyfile('%s/config/default.py' % app.root_path)
     app.url_map.converters['regex'] = RegexConverter
+
+    app.add_template_filter(slugify)
 
     if blueprints is None:
         blueprints = DEFAULT_BLUEPRINTS
