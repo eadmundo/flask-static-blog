@@ -27,6 +27,10 @@ def post_render(year=None, month=None, slug=None, tag=None):
     if tag is not None:
         query.tagged(tag)
 
-    pagination = query.paginate(page, 4)
+    pagination = query.paginate(page, current_app.config.get('BLOG_POSTS_PER_PAGE', 10))
 
-    return render_template('posts.jinja', pagination=pagination, endpoint=request.endpoint)
+    return render_template('posts.jinja',
+            pagination=pagination,
+            endpoint=request.endpoint,
+            view_args=request.view_args
+        )

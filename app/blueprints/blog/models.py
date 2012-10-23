@@ -47,8 +47,11 @@ class BlogPostQuery(object):
         return len(self.posts)
 
     def paginate(self, page, per_page):
-        items = [post.populate() for post in list(izip_longest(*[iter(self.posts)] * per_page))[page - 1] if post is not None]
-        return Pagination(page, per_page, len(self.posts), items)
+        if self.count <= per_page:
+            items = self.all()
+        else:
+            items = [post.populate() for post in list(izip_longest(*[iter(self.posts)] * per_page))[page - 1] if post is not None]
+        return Pagination(page, per_page, self.count, items)
 
     def tagged(self, query_tag):
         tagged_posts = self.all()

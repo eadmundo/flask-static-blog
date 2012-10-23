@@ -6,9 +6,9 @@
     {% from "includes/_pagination.jinja" import render_pagination %}
 
     <div class="rounded-box">
-        <p>Total {{ pagination.total }} posts.</p>
+        <p>Total {{ pagination.total_count }} posts.</p>
 
-        {{ render_pagination(pagination, endpoint) }}
+        {{ render_pagination(pagination, endpoint, view_args) }}
 
         <ul>
 
@@ -20,6 +20,6 @@
 
         </ul>
 
-        {{ render_pagination(pagination, endpoint) }}
+        {{ render_pagination(pagination, endpoint, view_args) }}
     </div>
 {% endblock %}
