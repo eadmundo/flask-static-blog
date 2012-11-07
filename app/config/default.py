@@ -8,3 +8,6 @@ SECRET_KEY = 'SecretKeyForSessionSigning'
 
 # Folder to look for file-based blog posts
 BLOG_FILE_POSTS_FOLDER = os.path.realpath(os.path.join(os.path.dirname(os.path.dirname(__file__)), 'posts'))
+
+# Where to generate the static version of the site
+FREEZER_DESTINATION = '../frozen'

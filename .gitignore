@@ -2,3 +2,4 @@
 .vagrant
 *.pyc
 .DS_Store
+frozen

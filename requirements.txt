@@ -24,3 +24,6 @@ PyYAML==3.10
 # Parse markdown posts
 Markdown==2.2.0
 Pygments==1.5
+
+# Generate static site
+Frozen-Flask==0.9
