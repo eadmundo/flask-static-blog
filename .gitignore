@@ -1,0 +1,4 @@
+.vagrant
+.venv
+app
+fabfile
