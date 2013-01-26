@@ -5,7 +5,7 @@ from flask import Flask
 from app.helpers import slugify
 
 DEFAULT_BLUEPRINTS = [
-    ('blog', '/flask-static-blog/frozen'),
+    ('blog', '/flask-static-blog'),
 ]
 
 
