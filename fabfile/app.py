@@ -20,3 +20,6 @@ def gh_pages():
 	do('git checkout gh-pages')
 	do('cp -r frozen/flask-static-blog/* .')
 	do('rm -rf frozen/flask-static-blog/')
+	do('git commit -am "fab test"')
+	do('git push -f origin gh-pages')
+	do('git checkout master')
