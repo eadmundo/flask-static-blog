@@ -15,3 +15,6 @@ def freeze():
 def serve_frozen():
     """Serve static site up on development server"""
     do('export FLASK_CONFIG=config/dev.py && %s/bin/python manage.py serve_frozen' % venv_path)
+
+def gh_pages():
+	do('git checkout gh-pages')

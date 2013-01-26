@@ -31,3 +31,10 @@ def serve_frozen():
     """Build and serve static site up on development server"""
     app.freeze()
     app.serve_frozen()
+
+
+@task
+def gh_pages():
+    app.freeze()
+    app.gh_pages()
+
