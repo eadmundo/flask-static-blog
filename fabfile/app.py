@@ -18,3 +18,5 @@ def serve_frozen():
 
 def gh_pages():
 	do('git checkout gh-pages')
+	do('cp -r frozen/flask-static-blog/* .')
+	do('rm -rf frozen/flask-static-blog/')
