@@ -2,3 +2,4 @@
 .venv
 app
 fabfile
+.DS_Store
