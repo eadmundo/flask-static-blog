@@ -1,16 +1,3 @@
 # Flask Static Blog
 
-After cloning the repo, in the directory `flask-static-blog`:
-
-    $ vagrant up
-    $ vagrant ssh
-
-Once ssh'd into the vagrant vm:
-
-    vagrant$ fab -l
-
-to see available fab commands.
-
-Posts are created in [Markdown](http://daringfireball.net/projects/markdown/), and currently live in `app/posts`.
-
-The date & title of the post are determined from the filename, which should be in the format `YYYY-MM-DD-title-of-blog-post.mdown`. Author name and tags are provided as YAML front-matter in the post markdown file itself.
+Documentation for this project is produced using Flask-Static-Blog itself, and can be found at [http://eadmundo.github.com/flask-static-blog/](http://eadmundo.github.com/flask-static-blog/)
